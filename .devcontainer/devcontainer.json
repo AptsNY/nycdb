@@ -1,0 +1,68 @@
+{
+    "name": "my-project-devcontainer",
+    //"image": "mcr.microsoft.com/devcontainers/base:ubuntu", // Any generic, debian-based image.
+    "image": "mcr.microsoft.com/devcontainers/python:3.8-bullseye", // A Python image with Debian Bullseye.
+  
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:2.11.0": {
+        "version": "latest",
+        "moby": true
+      },
+    //   "ghcr.io/devcontainers/features/aws-cli:1": {
+    //     "version": "latest"
+    //   },
+    //   "ghcr.io/devcontainers/features/desktop-lite:1": {
+    //     "password": "noPassword"
+    //   },
+    //   "ghcr.io/devcontainers/features/git:1": {
+    //     "ppa": "true"
+    //   },
+    //   "ghcr.io/devcontainers/features/github-cli:1": {
+    //     "version": "latest",
+    //     "installDirectlyFromGitHubRelease": "true"
+    //  },
+      "ghcr.io/devcontainers/features/python:1": {
+        "installTools": "true",
+        "installJupyterlab": "true"
+      },
+      "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {"packages": "python3-py7zr"}
+    },
+  
+    // "customizations": {
+    //   "vscode": {
+    //     "extensions": [
+    //       "ms-azuretools.vscode-docker",
+    //       "ms-vscode-remote.remote-containers",
+    //       "GitHub.codespaces",
+    //       "ms-vscode-remote.remote-ssh",
+    //       "ms-vscode-remote.remote-ssh-edit",
+    //       "ms-vscode.remote-explorer",
+    //       "ms-vscode.remote-server",
+    //       "ms-vscode-remote.remote-wsl",
+    //       "ms-python.vscode-pylance",
+    //       "ms-python.python",
+    //       "ms-python.debugpy",
+    //       "formulahendry.docker-explorer",
+    //       "cweijan.vscode-database-client2",
+    //       "ms-vsliveshare.vsliveshare"
+    //     ]
+    //   }
+    // },
+  
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+      5432 // PostgreSQL
+    ]
+  
+    // Uncomment the next line if you want start specific services in your Docker Compose config.
+    // "runServices": [],
+  
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+  
+    // Uncomment the next line to run commands after the container is created.
+    // "postCreateCommand": "python3 .devcontainer/development_environment_download_configuration_files.py && docker build -t local-docker-laundry . && docker-compose -f docker-compose.local.yml up --build"
+    
+  }
+  
