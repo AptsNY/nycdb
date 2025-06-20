@@ -18,6 +18,7 @@ def parse_args():
 
     # Download, Load, Verify, Dump
     parser.add_argument('--download', metavar='DATASET', action='store', help='downloads file for provided dataset')
+    parser.add_argument('--download-force', metavar='DATASET', action='store', help='force downloads file for provided dataset')
     parser.add_argument('--load', metavar='DATASET', action='store', help='loads dataset into postgres')
     parser.add_argument('--verify', metavar='DATASET', action='store', help='verifies a dataset by checking the table row count')
     parser.add_argument('--dump', metavar='DATASET', action='store', help='creates a sql dump of the datasets in the current folder')
@@ -99,6 +100,8 @@ def dispatch(args):
         verify_all(args)
     elif args.download:
         Dataset(args.download, args=args).download_files()
+    elif args.download_force:
+        Dataset(args.download_force, args=args).download_files_force()
     elif args.load:
         Dataset(args.load, args=args).db_import()
     elif args.dump:

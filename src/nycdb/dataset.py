@@ -70,6 +70,15 @@ class Dataset:
         for f in self.files:
             f.download(hide_progress=self.args.hide_progress)
 
+    def download_files_force(self):
+        """
+        Force downloads all files for the dataset.
+
+        See ./file.py for more details.
+        """
+        for f in self.files:
+            f.download(hide_progress=self.args.hide_progress, force=True)
+
     def db_import(self, limit=None):
         """
         Inserts the dataset in the postgres.
